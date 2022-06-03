@@ -83,21 +83,34 @@ export default {
           left: "center",
         },
         tooltip: {
-          trigger: 'axis',
+          show: "true",
+          showContent: "true",
+          trigger: "axis",
           transitionDuration: 0,
-          confine: false,
+          confine: true,
           hideDelay: 0,
-          padding: 0,
+          backgroundColor: "#11203b",
+          textStyle: {
+            color: "white",
+            fontSize: 14,
+          },
         },
         grid: {
           left: "30px",
           right: "12px",
-          bottom: "2px",
+          bottom: "25px",
           top: "6px",
           containLabel: true,
         },
         xAxis: {
           type: "category",
+          name: "Home page",
+          nameLocation: "center",
+          nameTextStyle: {
+            padding: 10,
+            fontSize: "16px",
+            color: "black",
+          },
           showGrid: false,
           data: this.xAxisData,
           axisLine: {
@@ -138,6 +151,7 @@ export default {
         },
         series: [
           {
+            name: 'Team Performance Index:',
             data: this.yAxisData,
             type: "line",
             symbol: "circle",
