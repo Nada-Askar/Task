@@ -1,0 +1,16 @@
+.c-not-found{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height:500px;
+}
+.c-not-found__number{
+    font-size: 50px;
+    font-weight: bold;
+    color:black;
+}
+.c-not-found__txt{
+    font-weight: bold;
+    color:black;
+}
