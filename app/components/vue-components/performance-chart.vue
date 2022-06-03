@@ -115,6 +115,27 @@ export default {
           axisTick: { show: true },
           splitLine: { show: true },
         },
+        visualMap: {
+          top: 50,
+          right: 10,
+          pieces: [
+            {
+              gt: 0,
+              lte: 50,
+              color: 'red'
+            },
+            {
+              gt: 50,
+              lte: 80,
+              color: 'yellow'
+            },
+            {
+              gt: 80,
+              lte: 100,
+              color: 'green'
+            }
+          ]
+        },
         series: [
           {
             data: this.yAxisData,
