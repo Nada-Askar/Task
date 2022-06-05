@@ -4,7 +4,7 @@
       [Place filter component here]
     </div>
     <div class="c-dashboard__header">
-      <performance-chart-component />
+      <performance-chart-component :chartData="performanceData" />
     </div>
   </div>
 </template>
@@ -15,6 +15,14 @@ export default {
   name: "AboutPageComponent",
   components: {
     PerformanceChartComponent,
+  },
+  computed: {
+    performanceData() {
+      return this.$store.getters.getPerformanceData;
+    },
+  },
+  mounted() {
+    this.$store.dispatch("loadPerformanceData")
   },
 };
 </script>
