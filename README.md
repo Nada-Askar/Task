@@ -1,4 +1,4 @@
-# Instabug take-home task
+# take-home task
 
 ### Description
 You recently joined a company that uses an internal system to monitor the performance of its sales team. They are currently use [Vuejs](https://v2.vuejs.org/) and [Angularjs](https://docs.angularjs.org/guide/introduction), and they need to implement some requirements
