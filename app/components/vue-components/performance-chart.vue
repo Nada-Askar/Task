@@ -106,6 +106,7 @@ export default {
     yAxisData() {
       return this.filteredData.map((item) => +item.performance * 100);
     },
+
     filteredData() {
       return this.filterData(this.startDate, this.endDate);
     },
@@ -115,13 +116,11 @@ export default {
     formatDate(dateInMs) {
       return moment(dateInMs).format("DD MMM YYYY");
     },
-    formatDateToMMDD(dateInMs) {
-      return moment(dateInMs).format("MM/DD/YYYY");
-    },
+
     filterData(startDate, endDate) {
-      return this.chartData.filter(item =>
-      (new Date(item.date_ms) >= new Date(startDate)
-        && new Date(this.formatDateToMMDD(item.date_ms)) <= new Date(endDate))
+      return this.chartData.filter((item) =>
+        new Date(item.date_ms) >= new Date(startDate)
+        && new Date(item.date_ms) <= new Date(endDate)
       );
     },
   },
