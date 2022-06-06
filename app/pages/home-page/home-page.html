@@ -1,13 +1,24 @@
 <div class="c-dashboard">
   <div class="c-filters__container">
-    <v-sales-team-filter v-on-update-search-val="homePageVm.updateSearchVal"></v-sales-team-filter>
+    <v-sales-team-filter
+      v-on-update-search-val="homePageVm.updateSearchVal"
+    ></v-sales-team-filter>
   </div>
 
-  <employees-list employees-list="homePageVm.employees" search-value="homePageVm.searchVal"></employees-list>
+  <employees-list
+    employees-list="homePageVm.employees"
+    search-value="homePageVm.searchVal"
+  ></employees-list>
 
   <div class="c-dashboard__footer">
-    <button class="c-button">
-      Load More
+    <button
+      class="c-button"
+      ng-click="homePageVm.loadMoreEmplyees()"
+      ng-disabled="homePageVm.isLoading"
+      ng-show="homePageVm.current_page < 7"
+    >
+      <span ng-show="homePageVm.isLoading"> Loading... </span>
+      <span ng-show="!homePageVm.isLoading"> Load More </span>
     </button>
   </div>
 </div>
