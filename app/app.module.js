@@ -5,10 +5,9 @@ import store from './store';
 import PerformancePageComponent from './pages/performance-page.vue';
 import PerformanceChartComponent from './components/vue-components/performance-chart.vue';
 import SalesTeamFilterComponent from './components/vue-components/sales-team-filter.vue';
-import SalesTeamFilterComponent from './components/vue-components/sales-team-filter.vue';
-
 import NotFoundPageComponent from './pages/not-found-page.vue';
 import NotFoundComponent from './components/vue-components/not-found.vue';
+
 angular.module('appModule', [
   'ui.router',
   'ngVue',
