@@ -5,6 +5,10 @@ angular
 function homePageController(Employees) {
   const homePageVm = this;
   homePageVm.employees = [];
+  homePageVm.searchVal = '';
+  homePageVm.updateSearchVal = (val) => {
+    homePageVm.searchVal = val;
+  };
 
   activate();
 
