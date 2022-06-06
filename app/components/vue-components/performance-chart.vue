@@ -32,40 +32,9 @@ export default {
   components: {
     VChart,
   },
-
+  props: ["chartData", "startDate", "endDate"],
   data() {
-    return {
-      chartData: [
-        {
-          date_ms: 1641772800000,
-          performance: 0.2,
-        },
-        {
-          date_ms: 1641859200000,
-          performance: 0.33,
-        },
-        {
-          date_ms: 1641945600000,
-          performance: 0.53,
-        },
-        {
-          date_ms: 1642032000000,
-          performance: 0.31,
-        },
-        {
-          date_ms: 1642118400000,
-          performance: 0.65,
-        },
-        {
-          date_ms: 1642204800000,
-          performance: 0.88,
-        },
-        {
-          date_ms: 1642291200000,
-          performance: 0.07,
-        },
-      ],
-    };
+    return {};
   },
 
   computed: {
@@ -131,17 +100,34 @@ export default {
     },
 
     xAxisData() {
-      return this.chartData.map((item) => this.formatDate(item.date_ms));
+      return this.filteredData.map((item) => this.formatDate(item.date_ms));
     },
 
     yAxisData() {
-      return this.chartData.map((item) => +item.performance * 100);
+      return this.filteredData.map((item) => +item.performance * 100);
+    },
+
+    filteredData() {
+      return this.filterData(this.startDate, this.endDate);
     },
   },
 
   methods: {
     formatDate(dateInMs) {
       return moment(dateInMs).format("DD MMM YYYY");
+    },
+
+    /**
+     * Function that filters chart data based on start date and end date
+     * by default, the function shows chart data between the start and end date of the entire performance data
+     * when the user chooses a start and end date, it filters the performance data based on that 
+     */
+
+    filterData(startDate, endDate) {
+      return this.chartData.filter((item) =>
+        new Date(item.date_ms) >= new Date(startDate)
+        && new Date(item.date_ms) <= new Date(endDate)
+      );
     },
   },
 };
