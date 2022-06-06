@@ -32,7 +32,7 @@ export default {
   components: {
     VChart,
   },
-  props: ["chartData"],
+  props: ["chartData", "startDate", "endDate"],
   data() {
     return {};
   },
@@ -100,17 +100,29 @@ export default {
     },
 
     xAxisData() {
-      return this.chartData.map((item) => this.formatDate(item.date_ms));
+      return this.filteredData.map((item) => this.formatDate(item.date_ms));
     },
 
     yAxisData() {
-      return this.chartData.map((item) => +item.performance * 100);
+      return this.filteredData.map((item) => +item.performance * 100);
+    },
+    filteredData() {
+      return this.filterData(this.startDate, this.endDate);
     },
   },
 
   methods: {
     formatDate(dateInMs) {
       return moment(dateInMs).format("DD MMM YYYY");
+    },
+    formatDateToMMDD(dateInMs) {
+      return moment(dateInMs).format("MM/DD/YYYY");
+    },
+    filterData(startDate, endDate) {
+      return this.chartData.filter(item =>
+      (new Date(item.date_ms) >= new Date(startDate)
+        && new Date(this.formatDateToMMDD(item.date_ms)) <= new Date(endDate))
+      );
     },
   },
 };
