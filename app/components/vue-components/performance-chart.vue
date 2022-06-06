@@ -117,6 +117,12 @@ export default {
       return moment(dateInMs).format("DD MMM YYYY");
     },
 
+    /**
+     * Function that filters chart data based on start date and end date
+     * by default, the function shows chart data between the start and end date of the entire performance data
+     * when the user chooses a start and end date, it filters the performance data based on that 
+     */
+
     filterData(startDate, endDate) {
       return this.chartData.filter((item) =>
         new Date(item.date_ms) >= new Date(startDate)
