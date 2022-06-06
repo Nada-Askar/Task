@@ -43,7 +43,7 @@
   },
   "scripts": {
     "start": "webpack-dev-server --open --progress --history-api-fallback",
-    "build": "webpack"
+    "build": "webpack",
     "test": "jest"
   }
 }
